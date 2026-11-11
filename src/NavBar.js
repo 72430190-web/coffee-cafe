@@ -1,6 +1,8 @@
+import { useCart } from './CartContext';
  import { Link } from 'react-router-dom';
  
  export const Navbar =()=>{
+    const { count } = useCart();
     return(
         <nav className="navbar navbar-expand-lg" id="nav-bar">
       <div className="container">
@@ -46,6 +48,9 @@
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/Reviews">Reviews</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cart">Cart ({count})</Link>
             </li>
           </ul>
         </div>

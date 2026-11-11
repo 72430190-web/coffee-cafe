@@ -1,8 +1,10 @@
+import { useCart } from '../CartContext';
 import { espressoItems,coldItems,pastryItems } from '../data/products';
 
 
 //card 
 function MenuItem({ item }) {
+  const { addItem } = useCart();
   return (
     <div className="menu-item-menu">
       <div className="item-img">
@@ -12,7 +14,7 @@ function MenuItem({ item }) {
         <p className="info-title-menu">{item.name}</p>
         <p className="info-desc-menu">{item.desc}</p>
       </div>
-      <p className="item-price-menu">{item.price}</p>
+      <div className="menu-order-actions"><p className="item-price-menu">{item.price}</p><button type="button" className="menu-add-cart" onClick={() => addItem(item)}>+ Add to Cart</button></div>
     </div>
   );
 }
@@ -36,10 +38,10 @@ export default function Menu() {
   return (
     <>
 
-    <section class="hero-section-menu">
-      <div class="content-hero-menu">
-        <div class="hero-tag-menu">Specialty Coffee · Crafted Daily</div>
-        <h1 class="hero-title-menu">Our <em>Menu</em></h1>
+    <section className="hero-section-menu">
+      <div className="content-hero-menu">
+        <div className="hero-tag-menu">Specialty Coffee · Crafted Daily</div>
+        <h1 className="hero-title-menu">Our <em>Menu</em></h1>
       </div>
         
     </section>
